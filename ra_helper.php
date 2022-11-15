@@ -36,3 +36,46 @@ function sama($a, $b)
         return false;
     }
 }
+
+/**
+ * Mencari apakah dalam string tersebut ada kata yang dicari
+ * 
+ * @param string $string    String yang ingin dicari
+ * @param string $cari  Data yang mau dicari
+ * 
+ * @return bool True | False
+ */
+
+function ada(string $string, string $cari)
+{
+    if (strpos($string, $cari) !== false) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Biasa digunakan pada Menu yang menggunakan Bootstrap
+ * 
+ * @param mixed $menu       Data menu pada menu tersebut bisa String bisa pula Array
+ * @param string $pilih     Menu yang sekarang terpilih
+ * @param string $tampil    String yang akan ditampilkan
+ * 
+ * @return void|string      Akan mengembalikan data Tampil jika benar
+ */
+
+function menu($menu, string $pilih, string $tampil = "active")
+{
+    if (is_array($menu)) {
+        foreach ($menu as $me) {
+            if ($me == $pilih) {
+                return $tampil;
+            }
+        }
+    } else {
+        if ($menu == $pilih) {
+            return $tampil;
+        }
+    }
+}
