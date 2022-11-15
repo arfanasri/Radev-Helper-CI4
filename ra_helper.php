@@ -18,3 +18,21 @@ function jenkel(string $jenkel = null)
         return "Lainnya";
     }
 }
+
+/**
+ * Mengetahui apakah nilai variabel A dan variabel B sama
+ * 
+ * @param mixed $a  Variabel A
+ * @param mixed $b  Variabel B
+ * 
+ * @return bool True | False
+ */
+
+function sama($a, $b)
+{
+    if ($a == $b) {
+        return true;
+    } else {
+        return false;
+    }
+}
