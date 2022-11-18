@@ -132,3 +132,37 @@ function terbilang(int $nilai)
     }
     return ucwords($hasil . ' Rupiah');
 }
+
+/**
+ * Menampilak Nama Agama dari Signkatan
+ * 
+ * @param string $id    Singkatan Agama
+ * 
+ * @return string   Kepanjangan Agama
+ */
+function agama(string $id)
+{
+    switch ($id) {
+        case 'is':
+            return "Islam";
+            break;
+        case 'kp':
+            return "Kristen Protestan";
+            break;
+        case 'kk':
+            return "Kristen Katolik";
+            break;
+        case 'hi':
+            return "Hindu";
+            break;
+        case 'bu':
+            return "Budha";
+            break;
+        case 'kh':
+            return "Kong Hu Cu";
+            break;
+        default:
+            return "Lainnya";
+            break;
+    }
+}
