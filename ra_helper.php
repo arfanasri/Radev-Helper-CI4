@@ -166,3 +166,16 @@ function agama(string $id)
             break;
     }
 }
+
+
+/** 
+ * Menampilkan Nilai Rupiah
+ * 
+ * @param int id    masukkan nilai rupiah
+ * 
+ * @return string   Nilai dengan format rupiah
+ */
+function rupiah($id)
+{
+    return "Rp " . number_format($id, 0, ',', '.');
+}
