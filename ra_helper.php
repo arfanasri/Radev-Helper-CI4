@@ -8,7 +8,7 @@
  * 
  * @return string Laki-Laki | Perempuan | Lainnya
  */
-function jenkel(string $jenkel = null)
+function jenkel(string $jenkel = null): string
 {
     if ($jenkel == "L") {
         return "Laki-laki";
@@ -28,7 +28,7 @@ function jenkel(string $jenkel = null)
  * @return bool True | False
  */
 
-function sama($a, $b)
+function sama($a, $b): bool
 {
     if ($a == $b) {
         return true;
@@ -46,7 +46,7 @@ function sama($a, $b)
  * @return bool True | False
  */
 
-function ada(string $string, string $cari)
+function ada(string $string, string $cari): bool
 {
     if (strpos($string, $cari) !== false) {
         return true;
@@ -87,7 +87,7 @@ function menu($menu, string $pilih, string $tampil = "active")
  * 
  * @return string Penyebut
  */
-function penyebut(int $nilai)
+function penyebut(int $nilai): string
 {
     $nilai = abs($nilai);
     $huruf = array("", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");
@@ -123,7 +123,7 @@ function penyebut(int $nilai)
  * 
  * @return string   Hasil terbilang
  */
-function terbilang(int $nilai)
+function terbilang(int $nilai): string
 {
     if ($nilai < 0) {
         $hasil = "minus " . trim(penyebut($nilai));
@@ -140,7 +140,7 @@ function terbilang(int $nilai)
  * 
  * @return string   Kepanjangan Agama
  */
-function agama(string $id)
+function agama(string $id): string
 {
     switch ($id) {
         case 'is':
@@ -175,7 +175,27 @@ function agama(string $id)
  * 
  * @return string   Nilai dengan format rupiah
  */
-function rupiah($id)
+function rupiah($id): string
 {
     return "Rp " . number_format($id, 0, ',', '.');
+}
+
+/**
+ * Menampilkan Respon Error Ajax Form
+ */
+function responError(array $data): string
+{
+    $teks = "";
+    foreach ($data as $dt) {
+        $teks .= "if (response.error.$dt) { $('#$dt').addClass('is-invalid'); $('#error_$dt').html(response.error.$dt); } else { $('#$dt').removeClass('is-invalid'); $('#error_$dt').html('');}";
+    }
+    return $teks;
+}
+
+/**
+ * Menampilkan Pesan Error Aplikasi
+ */
+function pesanError(): string
+{
+    return 'alert("Terjadi Kesalahan\nSilahkan hubungi teknisi");console.log(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);';
 }
